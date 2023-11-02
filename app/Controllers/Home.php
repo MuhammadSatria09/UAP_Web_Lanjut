@@ -12,4 +12,13 @@ class Home extends BaseController
     public function home_karyawan(){
         return view ('home_karyawan');
     }
+
+    public function home_customer(){
+        return view ('home_customer');
+    }
+  
+    public function login(){
+        return view('login');
+    }
 }
+
