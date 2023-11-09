@@ -21,5 +21,8 @@ class Home extends BaseController
     public function login(){
         return view('login');
     }
+    public function dashboard_karyawan(){
+        return view('dashboard_karyawan');
+    }
 }
 
