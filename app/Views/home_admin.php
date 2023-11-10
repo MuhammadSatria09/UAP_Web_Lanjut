@@ -12,7 +12,7 @@
         <div class="md:flex items-center justify-between py-2 px-8 md:px-12">
             <div class="flex justify-between items-center">
                <div class="text-2xl font-bold text-gray-800 md:text-3xl">
-                    <a href="#">Admin</a>
+                    <a href="#">SweSense/Admin</a>
                </div>
                 <div class="md:hidden">
                     <button type="button" class="block text-gray-800 hover:text-gray-700 focus:text-gray-700 focus:outline-none">
@@ -26,6 +26,7 @@
             <div class="flex flex-col md:flex-row hidden md:block -mx-2">
                 <a href="#" class="text-gray-800 rounded hover:bg-gray-900 hover:text-gray-100 hover:font-medium py-2 px-2 md:mx-2">Home</a>
                 <a href="#" class="text-gray-800 rounded hover:bg-gray-900 hover:text-gray-100 hover:font-medium py-2 px-2 md:mx-2">Dashboard</a>
+                <a href="#" class="text-gray-800 rounded hover:bg-gray-900 hover:text-gray-100 hover:font-medium py-2 px-2 md:mx-2">Transaksi</a>
             </div>
         </div>
     </nav>
