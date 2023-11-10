@@ -12,3 +12,5 @@ $routes->get('/customer','Home::home_customer');
 $routes->get('/login','Home::login');
 $routes->get('/dashboard_admin','Home::dashboard_admin');
 $routes->get('/transaksi','Home::transaksi');
+$routes->get('/dashboard_karyawan','Home::dashboard_karyawan');
+$routes->get('/dashboard','Home::dashboard');

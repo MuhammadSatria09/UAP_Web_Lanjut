@@ -27,5 +27,19 @@ class Home extends BaseController
     public function transaksi(){
         return view('transaksi');
     }
+
+    public function dashboard_karyawan(){
+        return view('dashboard_karyawan');
+    }
+
+    public function register(){
+        return view('register');
+    }
+  
+    public function dashboard(){
+        return view ('dashboard_customer');
+    }
+  
+
 }
 
