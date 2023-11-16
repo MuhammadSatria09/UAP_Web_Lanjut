@@ -4,9 +4,17 @@ namespace App\Controllers;
 
 class Home extends BaseController
 {
-    public function index(): string
+    public function index()
     {
-        return view('welcome_message');
+        if(in_groups('Admin')){
+            return view('home_admin');
+        }
+        if(in_groups('Worker')){
+            return view('home_karyawan');
+        }
+        if(in_groups('Customer')){
+            return view('home_customer');
+        }
     }
 
     public function home_admin(){
