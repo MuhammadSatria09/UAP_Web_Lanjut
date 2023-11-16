@@ -21,8 +21,18 @@ class Home extends BaseController
     public function login(){
         return view('login');
     }
+
     public function dashboard_karyawan(){
         return view('dashboard_karyawan');
     }
+
+    public function register(){
+        return view('register');
+    }
+  
+    public function dashboard(){
+        return view ('dashboard_customer');
+    }
+  
 }
 

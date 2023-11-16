@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+<nav class="bg-white shadow-lg">
+        <div class="md:flex items-center justify-between py-2 px-8 md:px-12">
+            <div class="flex justify-between items-center">
+               <div class="text-2xl font-bold text-gray-800 md:text-3xl">
+                    <a href="#">SewSense</a>
+               </div>
+                <div class="md:hidden">
+                    <button type="button" class="block text-gray-800 hover:text-gray-700 focus:text-gray-700 focus:outline-none">
+                        <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+                            <path class="hidden" d="M16.24 14.83a1 1 0 0 1-1.41 1.41L12 13.41l-2.83 2.83a1 1 0 0 1-1.41-1.41L10.59 12 7.76 9.17a1 1 0 0 1 1.41-1.41L12 10.59l2.83-2.83a1 1 0 0 1 1.41 1.41L13.41 12l2.83 2.83z"/>
+                            <path d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row hidden md:block -mx-2">
+                <a href="#" class="text-gray-800 rounded hover:bg-gray-900 hover:text-gray-100 hover:font-medium py-2 px-2 md:mx-2">Home</a>
+                <a href="#" class="text-gray-800 rounded hover:bg-gray-900 hover:text-gray-100 hover:font-medium py-2 px-2 md:mx-2">Catalouge</a>
+                <a href="#" class="text-gray-800 rounded hover:bg-gray-900 hover:text-gray-100 hover:font-medium py-2 px-2 md:mx-2">Order</a>
+            </div>
+        </div>
+    </nav>
+<section class="container mx-auto p-6 font-mono">
+  <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
+    <div class="w-full overflow-x-auto">
+      <table class="w-full">
+        <thead>
+          <tr class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
+            <th class="px-4 py-3">Id Barang</th>
+            <th class="px-4 py-3">Nama Barang</th>
+            <th class="px-4 py-3">Status</th>
+          </tr>
+        </thead>
+        <tbody class="bg-white">
+          <tr class="text-gray-700">
+            <td class="px-4 py-3 text-ms font-semibold border">1</td>
+            <td class="px-4 py-3 text-sm border">Baju</td>
+            <td class="px-4 py-3 text-xs border">
+              <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-sm"> Acceptable </span>
+            </td>
+          </tr>
+          <tr class="text-gray-700">
+            <td class="px-4 py-3 text-md font-semibold border">2</td>
+            <td class="px-4 py-3 text-sm border">Kaos</td>
+            <td class="px-4 py-3 text-xs border">
+              <span class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-gray-100 rounded-sm"> Pending </span>
+            </td>
+          </tr>
+          <tr class="text-gray-700">
+            <td class="px-4 py-3 text-md font-semibold border">3</td>
+            <td class="px-4 py-3 text-sm border">Tas</td>
+            <td class="px-4 py-3 text-xs border">
+              <span class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-sm"> Nnacceptable </span>
+            </td>
+          </tr>
+          <tr class="text-gray-700">
+            <td class="px-4 py-3 border text-md font-semibold">4</td>
+            <td class="px-4 py-3 border text-sm">jaket</td>
+            <td class="px-4 py-3 border text-xs">
+              <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-sm"> Acceptable </span>
+            </td>
+          </tr>
+          <tr class="text-gray-700">
+            <td class="px-4 py-3 border text-md font-semibold">5</td>
+            <td class="px-4 py-3 border text-sm">baju</td>
+            <td class="px-4 py-3 border text-xs">
+              <span class="px-2 py-1 font-semibold leading-tight text-gray-700 bg-gray-100 rounded-sm"> Pending </span>
+            </td>
+          </tr>
+          <tr class="text-gray-700">
+            <td class="px-4 py-3 border text-md font-semibold">6</td>
+            <td class="px-4 py-3 border text-sm">sweater</td>
+            <td class="px-4 py-3 border text-xs">
+              <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-sm"> Acceptable </span>
+            </td>
+          </tr>
+          <tr class="text-gray-700">
+            <td class="px-4 py-3 border text-md font-semibold">7</td>
+            <td class="px-4 py-3 border text-sm">tas</td>
+            <td class="px-4 py-3 border text-xs">
+              <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-sm"> Acceptable </span>
+            </td>
+          </tr>
+          <tr class="text-gray-700">
+            <td class="px-4 py-3 border text-md font-semibold">8</td>
+            <td class="px-4 py-3 border text-sm">celana</td>
+            <td class="px-4 py-3 border text-xs">
+              <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-sm"> Acceptable </span>
+            </td>
+          </tr>
+          <tr class="text-gray-700">
+            <td class="px-4 py-3 border text-md font-semibold">9</td>
+            <td class="px-4 py-3 border text-sm">baju</td>
+            <td class="px-4 py-3 border text-xs">
+              <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-sm"> Acceptable </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+</body>
+</html>
