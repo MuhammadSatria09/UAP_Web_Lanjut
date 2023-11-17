@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transaksi Konveksi</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
 <body>
+
 <nav class="bg-white shadow-lg">
     <div class="md:flex items-center justify-between py-2 px-8 md:px-12">
         <div class="flex justify-between items-center">
@@ -31,24 +31,21 @@
 </nav>
 
 <section class="container mx-auto p-6 font-mono">
+    <!-- Konten bagian section -->
     <div class="text-2xl font-bold text-gray-800 mb-4">List Transaksi</div>
     <button class="bg-green-500 text-white px-4 py-2 rounded">Tambah Data</button>
     <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
         <div class="w-full overflow-x-auto">
+            <!-- Tabel -->
             <table class="w-full">
+                <!-- Thead -->
                 <thead>
-                    <tr class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
-                        <th class="px-4 py-3">No.</th>
-                        <th class="px-4 py-3">Nama Pelanggan</th>
-                        <th class="px-4 py-3">Karyawan</th>
-                        <th class="px-4 py-3">Barang Pesanan</th>
-                        <th class="px-4 py-3">Jumlah</th>
-                        <th class="px-4 py-3">Total Harga</th>
-                        <th class="px-4 py-3">Tanggal Transaksi</th>
-                        <th class="px-4 py-3">Aksi</th>
-                    </tr>
+                    <!-- Kolom-kolom tabel -->
+                    <!-- ... (sama seperti sebelumnya) ... -->
                 </thead>
+                <!-- Tbody -->
                 <tbody class="bg-white">
+                    <!-- Baris data (contoh satu baris) -->
                     <tr class="text-gray-700">
                         <td class="px-4 py-3 border">1</td>
                         <td class="px-4 py-3 border">John Doe</td>
@@ -58,15 +55,40 @@
                         <td class="px-4 py-3 border">Rp 500,000</td>
                         <td class="px-4 py-3 border">2023-11-09 10:30</td>
                         <td class="px-4 py-3 border">
-                            <button class="bg-blue-500 text-white px-4 py-2 rounded">Edit</button>
+                            <!-- Tombol Edit (memunculkan tampilan edit) -->
+                            <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="showEditForm()">Edit</button>
+                            <!-- Tombol Hapus -->
                             <button class="bg-red-500 text-white px-4 py-2 rounded">Hapus</button>
                         </td>
                     </tr>
-                    
+                    <!-- ... (baris-baris data lainnya) ... -->
                 </tbody>
             </table>
         </div>
     </div>
+
+    <!-- Bagian Tampilan Edit (awalnya tersembunyi) -->
+    <div id="editForm" class="hidden mt-8 p-6 bg-white rounded-lg shadow-lg">
+        <div class="text-2xl font-bold text-gray-800 mb-4">Edit Data</div>
+        <!-- Formulir Edit (Anda dapat menyesuaikannya sesuai kebutuhan) -->
+        <form>
+            <!-- ... (tambahkan elemen formulir sesuai kolom-kolom yang ingin diubah) ... -->
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Simpan Perubahan</button>
+            <button type="button" onclick="hideEditForm()" class="bg-gray-500 text-white px-4 py-2 rounded">Batal</button>
+        </form>
+    </div>
+
+    <script>
+        // Fungsi untuk menampilkan formulir edit
+        function showEditForm() {
+            document.getElementById("editForm").style.display = "block";
+        }
+
+        // Fungsi untuk menyembunyikan formulir edit
+        function hideEditForm() {
+            document.getElementById("editForm").style.display = "none";
+        }
+    </script>
 </section>
 
 </body>
