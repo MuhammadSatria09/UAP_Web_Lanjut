@@ -13,5 +13,6 @@ $routes->get('/login','Home::login');
 $routes->get('/dashboard_admin','Home::dashboard_admin');
 $routes->get('/transaksi','Home::transaksi');
 $routes->get('/transaksi/(:any)/edit', 'Home::edit');
-$routes->get('/dashboard_karyawan','Home::dashboard_karyawan');
+$routes->get('/dashboard_karyawan','PekerjaanController::index');
 $routes->get('/dashboard','Home::dashboard');
+
