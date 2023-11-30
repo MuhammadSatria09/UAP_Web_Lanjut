@@ -15,3 +15,10 @@ $routes->get('/transaksi','Home::transaksi');
 $routes->get('/transaksi/(:any)/edit', 'Home::edit');
 $routes->get('/dashboard_karyawan','Home::dashboard_karyawan');
 $routes->get('/dashboard','Home::dashboard');
+$routes->get('/catalogue','Home::catalogue');
+$routes->get('/catalogue/create','Home::createKatalog');
+$routes->post('/catalogue/save','Home::saveKatalog');
+$routes->get('/catalogue/(:num)','Home::editKatalog/$1');
+$routes->put('/catalogue/(:num)/update','Home::updateKatalog/$1');
+$routes->delete('/catalogue/(:num)','Home::deleteKatalog/$1');
+
