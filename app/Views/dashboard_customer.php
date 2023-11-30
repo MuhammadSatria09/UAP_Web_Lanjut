@@ -24,8 +24,8 @@
             </div>
             <div class="flex flex-col md:flex-row hidden md:block -mx-2">
                 <a href="/customer" class="text-gray-800 rounded hover:bg-gray-900 hover:text-gray-100 hover:font-medium py-2 px-2 md:mx-2">Home</a>
-                <a href="/catalogue" class="text-gray-800 rounded hover:bg-gray-900 hover:text-gray-100 hover:font-medium py-2 px-2 md:mx-2">Catalouge</a>
-                <a href="/dashboard" class="text-gray-800 rounded hover:bg-gray-900 hover:text-gray-100 hover:font-medium py-2 px-2 md:mx-2">Order</a>
+                <a href="#" class="text-gray-800 rounded hover:bg-gray-900 hover:text-gray-100 hover:font-medium py-2 px-2 md:mx-2">Catalouge</a>
+                <a href="dashboard" class="text-gray-800 rounded hover:bg-gray-900 hover:text-gray-100 hover:font-medium py-2 px-2 md:mx-2">Order</a>
             </div>
         </div>
     </nav>
@@ -35,75 +35,41 @@
       <table class="w-full">
         <thead>
           <tr class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
-            <th class="px-4 py-3">Id Barang</th>
+            <th class="px-4 py-3">No</th>
             <th class="px-4 py-3">Nama Barang</th>
             <th class="px-4 py-3">Status</th>
           </tr>
         </thead>
         <tbody class="bg-white">
+          
+        <?php $no = 1;
+        foreach ($orders as $order){
+        ?>
+
           <tr class="text-gray-700">
-            <td class="px-4 py-3 text-ms font-semibold border">1</td>
-            <td class="px-4 py-3 text-sm border">Baju</td>
+            <td class="px-4 py-3 text-ms font-semibold border"><?= $no++ ?></td>
+            <td class="px-4 py-3 text-sm border"><?= $order['nama_barang'] ?></td>
             <td class="px-4 py-3 text-xs border">
-              <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-sm"> Acceptable </span>
+              <span class="px-2 py-1 font-semibold leading-tight 
+              <?php if($order['status'] == '0'){
+                  echo 'text-red-700 bg-red-100';};
+                  if($order['status'] == '1'){
+                  echo 'text-yellow-700 bg-yellow-100';};
+                  if($order['status'] == '2'){
+                  echo 'text-green-700 bg-green-100';};
+                  ?>
+               rounded-sm"> 
+                  <?php if($order['status'] == '0'){
+                  echo 'Belum Dikerjakan';};
+                  if($order['status'] == '1'){
+                  echo 'Sedang Dikerjakan';};
+                  if($order['status'] == '2'){
+                  echo 'Selesai';}; 
+                  ?>
+                  </span>
             </td>
           </tr>
-          <tr class="text-gray-700">
-            <td class="px-4 py-3 text-md font-semibold border">2</td>
-            <td class="px-4 py-3 text-sm border">Kaos</td>
-            <td class="px-4 py-3 text-xs border">
-              <span class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-gray-100 rounded-sm"> Pending </span>
-            </td>
-          </tr>
-          <tr class="text-gray-700">
-            <td class="px-4 py-3 text-md font-semibold border">3</td>
-            <td class="px-4 py-3 text-sm border">Tas</td>
-            <td class="px-4 py-3 text-xs border">
-              <span class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-sm"> Nnacceptable </span>
-            </td>
-          </tr>
-          <tr class="text-gray-700">
-            <td class="px-4 py-3 border text-md font-semibold">4</td>
-            <td class="px-4 py-3 border text-sm">jaket</td>
-            <td class="px-4 py-3 border text-xs">
-              <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-sm"> Acceptable </span>
-            </td>
-          </tr>
-          <tr class="text-gray-700">
-            <td class="px-4 py-3 border text-md font-semibold">5</td>
-            <td class="px-4 py-3 border text-sm">baju</td>
-            <td class="px-4 py-3 border text-xs">
-              <span class="px-2 py-1 font-semibold leading-tight text-gray-700 bg-gray-100 rounded-sm"> Pending </span>
-            </td>
-          </tr>
-          <tr class="text-gray-700">
-            <td class="px-4 py-3 border text-md font-semibold">6</td>
-            <td class="px-4 py-3 border text-sm">sweater</td>
-            <td class="px-4 py-3 border text-xs">
-              <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-sm"> Acceptable </span>
-            </td>
-          </tr>
-          <tr class="text-gray-700">
-            <td class="px-4 py-3 border text-md font-semibold">7</td>
-            <td class="px-4 py-3 border text-sm">tas</td>
-            <td class="px-4 py-3 border text-xs">
-              <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-sm"> Acceptable </span>
-            </td>
-          </tr>
-          <tr class="text-gray-700">
-            <td class="px-4 py-3 border text-md font-semibold">8</td>
-            <td class="px-4 py-3 border text-sm">celana</td>
-            <td class="px-4 py-3 border text-xs">
-              <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-sm"> Acceptable </span>
-            </td>
-          </tr>
-          <tr class="text-gray-700">
-            <td class="px-4 py-3 border text-md font-semibold">9</td>
-            <td class="px-4 py-3 border text-sm">baju</td>
-            <td class="px-4 py-3 border text-xs">
-              <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-sm"> Acceptable </span>
-            </td>
-          </tr>
+          <?php }; ?>
         </tbody>
       </table>
     </div>

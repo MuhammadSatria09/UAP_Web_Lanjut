@@ -1,18 +1,21 @@
 <?php
 
 namespace App\Controllers;
+use App\Models\OrderModel;
 use App\Models\KatalogModel;
 use App\Models\TransaksiModel;
 
 class Home extends BaseController
 {
 
+    public $OrderModel;
     public $katalogModel;
     public $transaksiModel;
 
     public function __construct(){
         $this->katalogModel = new KatalogModel();
         $this->transaksiModel = new TransaksiModel();
+        $this->OrderModel = new OrderModel();
     }
 
     public function index()
@@ -60,10 +63,7 @@ class Home extends BaseController
     public function register(){
         return view('register');
     }
-  
-    public function dashboard(){
-        return view ('dashboard_customer');
-    }
+
 
     public function catalogue(){
 
@@ -149,6 +149,43 @@ class Home extends BaseController
             ->with('success', 'Berhasil menghapus data');
     }
 
+    public function order(){
+        return view ('tambah_order');
+    }
 
+    public function StoreOrder(){
+        $auth = service('authentication');
+        $userId = $auth->id();
+
+
+        $path = 'assets/uploads/img';
+        $foto = $this->request->getFile('foto');
+        $name = $foto->getRandomName();
+
+        if($foto->move($path, $name)){
+            $foto = base_url($path . '/' . $name);
+        }
+
+        $OrderModel = new OrderModel();
+        
+
+        $this->OrderModel-> saveOrder ([
+            'nama_barang' => $this->request->getVar('nama_barang'),
+            'customer_id' => $userId,
+            'status' => $this->request->getVar('status'),
+            'foto' => $foto,
+            
+        ]);
+       
+        return redirect()->to('/dashboard');
+    }
+
+    public function dashboard(){
+        $data = [
+            'orders' => $this->OrderModel->getOrder()
+        ];
+
+        return view ('dashboard_customer',$data);
+    }
 }
 
