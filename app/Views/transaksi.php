@@ -32,7 +32,7 @@
 
 <section class="container mx-auto p-6 font-mono">
     <div class="text-2xl font-bold text-gray-800 mb-4">List Transaksi</div>
-    <button class="bg-green-500 text-white px-4 py-2 rounded">Tambah Data</button>
+    <!-- <button class="bg-green-500 text-white px-4 py-2 rounded">Tambah Data</button> -->
     <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
         <div class="w-full overflow-x-auto">
             <table class="w-full">
@@ -45,24 +45,27 @@
                         <th class="px-4 py-3">Jumlah</th>
                         <th class="px-4 py-3">Total Harga</th>
                         <th class="px-4 py-3">Tanggal Transaksi</th>
-                        <th class="px-4 py-3">Aksi</th>
                     </tr>
                 </thead>
                 <tbody class="bg-white">
-                    <tr class="text-gray-700">
-                        <td class="px-4 py-3 border">1</td>
-                        <td class="px-4 py-3 border">John Doe</td>
-                        <td class="px-4 py-3 border">Hanif</td>
-                        <td class="px-4 py-3 border">Kemeja</td>
-                        <td class="px-4 py-3 border">10 pcs</td>
-                        <td class="px-4 py-3 border">Rp 500,000</td>
-                        <td class="px-4 py-3 border">2023-11-09 10:30</td>
-                        <td class="px-4 py-3 border">
-                            <button class="bg-blue-500 text-white px-4 py-2 rounded">Edit</button>
-                            <button class="bg-red-500 text-white px-4 py-2 rounded">Hapus</button>
-                        </td>
-                    </tr>
                     
+                    <?php 
+                    $no = 1;
+                    foreach($transaksi as $transaksi){
+
+                    ?>
+                    <tr class="text-gray-700">
+                        <td class="px-4 py-3 border"><?= $no++?></td>
+                        <td class="px-4 py-3 border"><?= $transaksi['nama_pelanggan']?></td>
+                        <td class="px-4 py-3 border"><?= $transaksi['nama_karyawan']?></td>
+                        <td class="px-4 py-3 border"><?= $transaksi['nama_produk']?></td>
+                        <td class="px-4 py-3 border"><?= $transaksi['jumlah']?></td>
+                        <td class="px-4 py-3 border">Rp <?= $transaksi['total_harga']?></td>
+                        <td class="px-4 py-3 border"><?= $transaksi['created_at']?></td>
+                    </tr>
+                    <?php
+                    }
+                    ?>
                 </tbody>
             </table>
         </div>

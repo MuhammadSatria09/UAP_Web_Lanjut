@@ -2,14 +2,17 @@
 
 namespace App\Controllers;
 use App\Models\KatalogModel;
+use App\Models\TransaksiModel;
 
 class Home extends BaseController
 {
 
     public $katalogModel;
+    public $transaksiModel;
 
     public function __construct(){
         $this->katalogModel = new KatalogModel();
+        $this->transaksiModel = new TransaksiModel();
     }
 
     public function index()
@@ -41,7 +44,13 @@ class Home extends BaseController
         return view('dashboard_admin');
     }
     public function transaksi(){
-        return view('transaksi');
+
+        $transaksi = $this->transaksiModel->getTransaksi();
+        $data = [
+            'transaksi' => $transaksi,
+        ];
+        
+        return view('transaksi',$data);
     }
 
     public function dashboard_karyawan(){
