@@ -56,5 +56,6 @@ class KatalogModel extends Model
 
     public function deleteKatalog($id){
         return $this->delete($id);
+        
     }
 }
