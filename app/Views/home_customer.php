@@ -26,8 +26,8 @@
             </div>
             <div class="flex flex-col md:flex-row hidden md:block -mx-2">
                 <a href="/customer" class="text-gray-800 rounded hover:bg-gray-900 hover:text-gray-100 hover:font-medium py-2 px-2 md:mx-2">Home</a>
-                <a href="/catalogue" class="text-gray-800 rounded hover:bg-gray-900 hover:text-gray-100 hover:font-medium py-2 px-2 md:mx-2">Catalouge</a>
-                <a href="/dashboard" class="text-gray-800 rounded hover:bg-gray-900 hover:text-gray-100 hover:font-medium py-2 px-2 md:mx-2">Order</a>
+                <a href="#" class="text-gray-800 rounded hover:bg-gray-900 hover:text-gray-100 hover:font-medium py-2 px-2 md:mx-2">Catalouge</a>
+                <a href="dashboard" class="text-gray-800 rounded hover:bg-gray-900 hover:text-gray-100 hover:font-medium py-2 px-2 md:mx-2">Order</a>         
             </div>
         </div>
     </nav>
@@ -38,7 +38,7 @@
                 <p class="mt-2 text-sm text-gray-500 md:text-base">SewSense, membantu anda menemukan beragam pilihan desain, bahan, dan gaya yang dapat disesuaikan dengan kebutuhan bisnis Anda. Tim profesional kami siap membantu Anda merancang dan memproduksi seragam yang akan membedakan perusahaan Anda. 
 Mari berkolaborasi dan wujudkan visi bisnis Anda bersama kami!</p>
                 <div class="flex justify-center lg:justify-start mt-6">
-                    <a class="px-4 py-3 bg-gray-900 text-gray-200 text-xs font-semibold rounded hover:bg-gray-800" href="#">Shop now</a>
+                    <a class="px-4 py-3 bg-gray-900 text-gray-200 text-xs font-semibold rounded hover:bg-gray-800" href="/order">Belanja Sekarang</a>
                     <a class="mx-4 px-4 py-3 bg-gray-300 text-gray-900 text-xs font-semibold rounded hover:bg-gray-400" href="#">Learn More</a>
                 </div>
             </div>

@@ -30,9 +30,9 @@ class Order extends Migration
             ],
 
             'status' => [
-                'type'      => 'VARCHAR',
-                'constraint'    =>255,
-                'default'       => null,
+                'type'      => 'INT',
+                'constraint'    =>5,
+                'default'       => 0,
 
             ],
 
