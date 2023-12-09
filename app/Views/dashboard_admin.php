@@ -1,3 +1,22 @@
+<?php
+// Koneksi ke database
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "uap_web_lanjut";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Koneksi ke database gagal: " . $conn->connect_error);
+}
+
+// Query untuk mengambil data dari tabel penugasan
+$sql = "SELECT id_order, nama_barang, id_pekerja FROM penugasan";
+$result = $conn->query($sql);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,100 +48,48 @@
             </div>
         </div>
     </nav>
+
+
 <section class="container mx-auto p-6 font-mono">
-  <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
-    <div class="w-full overflow-x-auto">
-      <table class="w-full">
-        <thead>
-          <tr class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
-            <th class="px-4 py-3">ID</th>
-            <th class="px-4 py-3">Nama</th>
-            <th class="px-4 py-3">Status</th>
-            <th class="px-4 py-3">Terakhir transaksi</th>
-          </tr>
-        </thead>
-        <tbody class="bg-white">
-          <tr class="text-gray-700">
-          <td class="px-4 py-3 border">1</td>
-            <td class="px-4 py-3 border">
-              <div class="flex items-center text-sm">
-                <div class="relative w-8 h-8 mr-3 rounded-full md:block">
-                  <img class="object-cover w-full h-full rounded-full" src="https://images.pexels.com/photos/5212324/pexels-photo-5212324.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" alt="" loading="lazy" />
-                  <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
-                </div>
-                <div>
-                  <p class="font-semibold text-black">Yuna</p>
-                  <p class="text-xs text-gray-600">Kepala Bagian Administrasi</p>
-                </div>
-              </div>
-            </td>
-            <td class="px-4 py-3 text-xs border">
-              <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-sm"> Aktif </span>
-            </td>
-            <td class="px-4 py-3 text-sm border">10/11/2023 14:00pm</td>
-          </tr>
-          <tr class="text-gray-700">
-          <td class="px-4 py-3 border">2</td>
-            <td class="px-4 py-3 border">
-              <div class="flex items-center text-sm">
-                <div class="relative w-8 h-8 mr-3 rounded-full">
-                  <img class="object-cover w-full h-full rounded-full" src="https://images.pexels.com/photos/5212324/pexels-photo-5212324.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" alt="" loading="lazy" />
-                  <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
-                </div>
-                <div>
-                  <p class="font-semibold text-black">Talia</p>
-                  <p class="text-xs text-gray-600">Kepala bagian Pemasaran</p>
-                </div>
-              </div>
-            </td>
-            <td class="px-4 py-3 text-xs border">
-              <span class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-gray-100 rounded-sm"> Aktif 3 menit yang lalu </span>
-            </td>
-            <td class="px-4 py-3 text-sm border">10/11/2023 09:00 am</td>
-          </tr>
-          <tr class="text-gray-700">
-          <td class="px-4 py-3 border">3</td>
-            <td class="px-4 py-3 border">
-              <div class="flex items-center text-sm">
-                <div class="relative w-8 h-8 mr-3 rounded-full">
-                  <img class="object-cover w-full h-full rounded-full" src="https://images.pexels.com/photos/5212324/pexels-photo-5212324.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" alt="" loading="lazy" />
-                  <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
-                </div>
-                <div>
-                  <p class="font-semibold">Satria</p>
-                  <p class="text-xs text-gray-600">Kepala Bagian Pengiriman</p>
-                </div>
-              </div>
-            </td>
-            <td class="px-4 py-3 text-xs border">
-              <span class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-sm"> Aktif 5 menit yang lalu </span>
-            </td>
-            <td class="px-4 py-3 text-sm border">10/11/2023 09:15am</td>
-          </tr>
-          <tr class="text-gray-700">
-          <td class="px-4 py-3 border">4</td>
-            <td class="px-4 py-3 border">
-              <div class="flex items-center text-sm">
-                <div class="relative w-8 h-8 mr-3 rounded-full">
-                  <img class="object-cover w-full h-full rounded-full" src="https://images.pexels.com/photos/5212324/pexels-photo-5212324.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" alt="" loading="lazy" />
-                  <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
-                </div>
-                <div>
-                  <p class="font-semibold">Hanif</p>
-                  <p class="text-xs text-gray-600">Kepala Bagian Produksi</p>
-                </div>
-              </div>
-            </td>
-            <td class="px-4 py-3 border text-xs">
-              <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-sm"> Aktif </span>
-            </td>
-            <td class="px-4 py-3 border text-sm">10/11/2023 10:10am</td>
-          </tr>
-          
-        </tbody>
-      </table>
+    <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
+        <div class="w-full overflow-x-auto">
+            <table class="w-full">
+                <thead>
+                    <tr class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
+                        <th class="px-4 py-3">ID Order</th>
+                        <th class="px-4 py-3">Nama Barang</th>
+                        <th class="px-4 py-3">ID Pekerja</th>
+                        <th class="px-4 py-3">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white">
+                    <?php
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<tr class='text-gray-700'>";
+                            echo "<td class='px-4 py-3 border'>" . $row["id_order"] . "</td>";
+                            echo "<td class='px-4 py-3 border'>" . $row["nama_barang"] . "</td>";
+                            echo "<td class='px-4 py-3 border'>" . $row["id_pekerja"] . "</td>";
+                            echo "<td class='px-4 py-3 border'>";
+                            echo "<button class='bg-blue-500 text-white px-4 py-2 rounded'>Edit</button>";
+                            echo "<button class='bg-red-500 text-white px-4 py-2 rounded'>Hapus</button>";
+                            echo "</td>";
+                            echo "</tr>";
+                        }
+                    } else {
+                        echo "<tr><td colspan='4'>Tidak ada data.</td></tr>";
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
     </div>
-  </div>
 </section>
+
 </body>
 </html>
+
+<?php
+// Tutup koneksi database
+$conn->close();
+?>
