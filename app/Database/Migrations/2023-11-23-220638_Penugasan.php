@@ -23,12 +23,6 @@ class Penugasan extends Migration
                 'unsigned'      => true,
             ],
 
-            'nama_barang' => [
-                'type'      => 'VARCHAR',
-                'constraint'    =>255,
-
-            ],
-
             'id_pekerja' => [
                 'type'  => 'VARCHAR',
                 'constraint'    =>5,

@@ -3,7 +3,6 @@
 namespace App\Controllers;
 use App\Models\OrderModel;
 use App\Models\KatalogModel;
-use App\Models\TransaksiModel;
 use App\Models\PenugasanModel;
 use App\Models\UserModel;
 
@@ -43,7 +42,7 @@ class Home extends BaseController
                 'penugasan' =>$this->PenugasanModel->getPenugasanAll(),
                 
             ];
-            // dd($data);
+
             return view('dashboard_admin',$data);
         }
         if(in_groups('Worker') ){
@@ -51,7 +50,7 @@ class Home extends BaseController
                 'penugasan' => $this->PenugasanModel->getPenugasan()
                 
             ];
-            // dd($data);
+
             return view('dashboard_karyawan',$data);
         }
         if(in_groups('Customer')){
@@ -82,55 +81,7 @@ class Home extends BaseController
         return view ('catalogue_customer', $data);
     }
 
-    public function editKatalog($id){
-        $katalog = $this->katalogModel->getKatalog($id);
-
-        $data = [
-            'katalog' => $katalog,
-        ];
-
-        return view('editkatalog',$data);
-    }
-
-    public function updateKatalog($id){
-        $path = 'assets/uploads/img/';
-        $foto = $this->request->getFile('foto');
-
-        $data = [
-            'nama_produk' => $this->request->getVar('nama_produk'),
-            'harga' => $this->request->getVar('harga'),
-        ];
-
-        if($foto->isValid()) {
-            $name = $foto->getRandomName();
-
-            if($foto->move($path, $name)){
-                $foto_path = base_url($path . $name);
-
-                $data['foto'] = $foto_path;
-            }
-        }
-
-        $result = $this->katalogModel->updateKatalog($data, $id);
-
-        if(!$result){
-            return redirect()->back()->withInput()
-                ->with('error', 'Gagal menyimpan data' );
-        }
-
-        return redirect()->to(base_url('/catalogue'));
-    }
-
-    public function deleteKatalog($id){
-        $result = $this->katalogModel->deleteKatalog($id);
-        if(!$result){
-            return redirect()->back()->with('error', 'Gagal menghapus data' );
-        }
-
-        return redirect()->to(base_url('/catalogue'))
-            ->with('success', 'Berhasil menghapus data');
-    }
-
+    
     public function order(){
         return view ('tambah_order');
     }
@@ -200,7 +151,7 @@ class Home extends BaseController
             'id_order' => $this->request->getPost('id_order'),
             'status' => $this->request->getPost('status_update')
         ]);
-        // dd($this->request->getPost('status_update'));
+
         return redirect()->to('/dashboard');
     }else{
         $this->OrderModel->updateStatus([
