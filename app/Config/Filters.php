@@ -2,6 +2,9 @@
 
 namespace Config;
 
+use App\Filters\LoginFilter;
+use App\Filters\PermissionFilter;
+use App\Filters\RoleFilter;
 use CodeIgniter\Config\BaseConfig;
 use CodeIgniter\Filters\CSRF;
 use CodeIgniter\Filters\DebugToolbar;
@@ -25,9 +28,9 @@ class Filters extends BaseConfig
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
-        'login'      => \Myth\Auth\Filters\LoginFilter::class,
-        'role'       => \Myth\Auth\Filters\RoleFilter::class,
-        'permission' => \Myth\Auth\Filters\PermissionFilter::class,    
+        'login' => LoginFilter::class, // tambahkan ini
+        'role' => RoleFilter::class, // tambahkan ini
+        'permission' => PermissionFilter::class // tambahkan ini
     ];
 
     /**

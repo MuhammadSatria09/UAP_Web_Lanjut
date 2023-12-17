@@ -7,6 +7,7 @@ use CodeIgniter\HTTP\RedirectResponse;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Myth\Auth\Exceptions\PermissionException;
+use Myth\Auth\Filters\BaseFilter;
 
 class RoleFilter extends BaseFilter implements FilterInterface
 {
@@ -18,7 +19,7 @@ class RoleFilter extends BaseFilter implements FilterInterface
     public function before(RequestInterface $request, $arguments = null)
     {
         // If no user is logged in then send them to the login form.
-        if (! $this->authenticate->check()) {
+        if (!$this->authenticate->check()) {
             session()->set('redirect_url', current_url());
 
             return redirect($this->reservedRoutes['login']);
@@ -42,7 +43,8 @@ class RoleFilter extends BaseFilter implements FilterInterface
             return redirect()->to($redirectURL)->with('error', lang('Auth.notEnoughPrivilege'));
         }
 
-        throw new PermissionException(lang('Auth.notEnoughPrivilege'));
+        // throw new PermissionException(lang('Auth.notEnoughPrivilege'));
+        return redirect()->to('/login')->with('message', 'Akses ditolak. Anda tidak memiliki hak akses yang cukup.');
     }
 
     /**

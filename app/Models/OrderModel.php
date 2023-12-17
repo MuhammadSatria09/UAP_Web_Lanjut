@@ -4,15 +4,15 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class PekerjaanModel extends Model
+class OrderModel extends Model
 {
-    protected $table            = 'pekerjaan';
-    protected $primaryKey       = 'id_pekerjaan';
+    protected $table            = 'order';
+    protected $primaryKey       = 'id_order';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id_order', 'nama_barang', 'status', 'id_pekerja'];
+    protected $allowedFields    = ['nama_barang', 'harga', 'status', 'customer_id', 'foto'];
 
     // Dates
     protected $useTimestamps = false;
@@ -37,22 +37,4 @@ class PekerjaanModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
-
-    public function getPekerjaan()
-    {
-        $this->select('pekerjaan.*, users.username, users.email');
-
-        $this->join('users', 'users.id = pekerjaan.id_pekerja');
-
-        return $this->orderBy('pekerjaan.id_pekerjaan', 'desc')->findAll();
-    }
-
-    public function statusOptions()
-    {
-        return [
-            'Belum Dikerjaan' => 'Belum Dikerjaan',
-            'Proses' => 'Proses',
-            'Selesai' => 'Selesai'
-        ];
-    }
 }

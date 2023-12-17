@@ -2,8 +2,10 @@
 
 namespace Config;
 
+use Myth\Auth\Config\Auth as AuthConfig;
 
-class Auth extends \Myth\Auth\Config\Auth
+
+class Auth extends AuthConfig
 {
     /**
      * --------------------------------------------------------------------
