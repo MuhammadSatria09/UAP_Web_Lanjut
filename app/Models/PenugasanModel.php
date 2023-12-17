@@ -4,15 +4,15 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class OrderModel extends Model
+class PenugasanModel extends Model
 {
-    protected $table            = 'order';
-    protected $primaryKey       = 'id_order';
+    protected $table            = 'penugasan';
+    protected $primaryKey       = 'id_penugasan';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id_order','nama_barang','customer_id','foto'];
+    protected $allowedFields    = ['id_order','id_pekerja'];
 
     // Dates
     protected $useTimestamps = false;
@@ -38,32 +38,44 @@ class OrderModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-    public function getOrder($id=null){
-        $auth = service('authentication');
-        $userId = $auth->id();
+    public function getPenugasan($id = null)
+    {
+    $auth = service('authentication');
+    $userId = $auth->id();
 
-
-        if ($id != null){
-            return $this->select('user.*,kelas.nama_kelas')->join('kelas','kelas.id=user.id_kelas')->find($id);
-        }
-        return $this->select('order.*')->where('customer_id',$userId)->findAll();
+    return $this->select('penugasan.*,order.*')
+                ->join('order', 'order.id_order = penugasan.id_order')
+                ->where('penugasan.id_pekerja', $userId)
+                ->findAll();
+                
     }
 
-    public function getOrderAll(){
-        return $this->select('order.*')->where('status != 2')->findAll();
+
+    public function getPenugasanAll(){
+        return $this->select('penugasan.*,users.username')
+                    ->join('users','users.id = penugasan.id_pekerja')
+                    ->findAll();
     }
 
-    public function saveOrder($data){
-        $this->insert($data);
-    }
+    public function savePenugasan($data)
+    {
 
-    public function updateStatus($data){
-        $builder = $this->db->table('order');
+    $builder = $this->db->table('penugasan');
+
+    $existingRow = $builder->getWhere(['id_order' => $data['id_order']])->getRow();
+
+    if ($existingRow) {
+
         $builder->where('id_order', $data['id_order']);
         $builder->update($data);
+    } else {
+
+        $builder->insert($data);
+    }
     }
 
-    public function deleteOrder($data){
+    public function deletePenugasan($data){
         return $this->where('id_order',$data['id_order'])->delete();
     }
+
 }

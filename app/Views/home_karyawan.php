@@ -9,11 +9,11 @@
     <!-- component -->
 <script src="https://cdn.tailwindcss.com"></script>
 <div class="w-full">
-    <nav class="bg-white shadow-lg">
+    <nav class="bg-white shadow-lg fixed w-screen">
         <div class="md:flex items-center justify-between py-2 px-8 md:px-12">
             <div class="flex justify-between items-center">
                <div class="text-2xl font-bold text-gray-800 md:text-3xl">
-                    <a href="#">SewSense</a>
+                    <a href="<?= base_url('/')?>">SewSense/Karyawan</a>
                </div>
                 <div class="md:hidden">
                     <button type="button" class="block text-gray-800 hover:text-gray-700 focus:text-gray-700 focus:outline-none">
@@ -25,21 +25,23 @@
                 </div>
             </div>
             <div class="flex flex-col md:flex-row hidden md:block -mx-2">
-                <a href="karyawan" class="text-gray-800 rounded hover:bg-gray-900 hover:text-gray-100 hover:font-medium py-2 px-2 md:mx-2">Home</a>
-                <a href="dashboard_karyawan" class="text-gray-800 rounded hover:bg-gray-900 hover:text-gray-100 hover:font-medium py-2 px-2 md:mx-2">Dashboard</a>
+                <a href="<?= base_url('/')?>" class="text-gray-800 rounded hover:bg-gray-900 hover:text-gray-100 hover:font-medium py-2 px-2 md:mx-2">Home</a>
+                <a href="<?= base_url('/dashboard')?>" class="text-gray-800 rounded hover:bg-gray-900 hover:text-gray-100 hover:font-medium py-2 px-2 md:mx-2">Dashboard</a>
+                <a href="<?=base_url('/logout')?>"class="text-gray-800 rounded bg-red-400 hover:bg-red-500 hover:text-red-100 hover:font-medium py-2 px-2 md:mx-2">Keluar</a>
+
             </div>
         </div>
     </nav>
-    <div class="flex bg-white" style="height:600px;">
+    <div class="flex bg-whitelg:pt-[1/8] h-screen pt-20 pb-10 lg:pb-20">
         <div class="flex items-center text-center lg:text-left px-8 md:px-12 lg:w-1/2">
             <div>
-                <h2 class="text-3xl font-semibold text-gray-800 md:text-4xl">Selamat Datang <span class="text-indigo-600">Talia</span></h2>
+                <h2 class="text-3xl font-semibold text-gray-800 md:text-4xl">Selamat Datang <span class="text-indigo-600"><?=user()->username?></span></h2>
                 <p class="mt-2 text-sm text-gray-500 md:text-base">SewSense, membantu anda menemukan beragam pilihan desain, bahan, dan gaya yang dapat disesuaikan dengan kebutuhan bisnis Anda. Tim profesional kami siap membantu Anda merancang dan memproduksi seragam yang akan membedakan perusahaan Anda. 
 Mari berkolaborasi dan wujudkan visi bisnis Anda bersama kami!
                 </p>
                 <div class="flex justify-center lg:justify-start mt-6">
-                    <a class="px-4 py-3 bg-gray-900 text-gray-200 text-xs font-semibold rounded hover:bg-gray-800" href="#">Get Started</a>
-                    <a class="mx-4 px-4 py-3 bg-gray-300 text-gray-900 text-xs font-semibold rounded hover:bg-gray-400" href="#">Learn More</a>
+                    <a class="px-4 py-3 bg-gray-900 text-gray-200 text-xs font-semibold rounded hover:bg-gray-800" href="<?= base_url('/dashboard')?>">Cek Pekerjaan</a>
+
                 </div>
             </div>
         </div>
