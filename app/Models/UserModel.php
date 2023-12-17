@@ -122,7 +122,4 @@ class UserModel extends Model
         ]);
     }
 
-    public function getUsername($id){
-        return $this->select('users.*')->where('id',$Id)->findAll();
-    }
 }

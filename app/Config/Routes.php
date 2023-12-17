@@ -15,4 +15,5 @@ $routes->get('/order','Home::order',['filter' => 'role:Customer']);
 $routes->post('/order/store','Home::StoreOrder',['filter' => 'role:Customer']);
 $routes->post('/assign','Home::StoreAssign',['filter' => 'role:Admin']);
 $routes->post('/work','Home::StoreWork',['filter' => 'role:Worker']);
+$routes->post('/deleteOrder','Home::DeleteOrder',['filter' => 'role:Customer']);
 

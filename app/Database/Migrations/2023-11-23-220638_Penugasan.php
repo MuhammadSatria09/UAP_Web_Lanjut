@@ -30,7 +30,7 @@ class Penugasan extends Migration
 
         ]);
 
-        $this->forge->addForeignKey('id_order','order','id_order');
+        $this->forge->addForeignKey('id_order','order','id_order','CASCADE' ,'CASCADE');
         $this->forge->addKey('id_penugasan',true,true);    
         $this->forge->createTable('penugasan');
     }
