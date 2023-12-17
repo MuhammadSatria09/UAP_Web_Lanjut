@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin</title>
+    <title>SewSense | Penugasan</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
 
@@ -13,7 +13,7 @@
         <div class="md:flex items-center justify-between py-2 px-8 md:px-12">
             <div class="flex justify-between items-center">
                <div class="text-2xl font-bold text-gray-800 md:text-3xl">
-                    <a href="<?= base_url('/')?>">SewSense/Admin</a>
+                    <a href="<?= base_url('/')?>">SewSense</a>
                </div>
                 <div class="md:hidden">
                     <button type="button" class="block text-gray-800 hover:text-gray-700 focus:text-gray-700 focus:outline-none">
